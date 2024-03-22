@@ -43,81 +43,11 @@ export default {
 <template>
 
   <main>
-    <h1 class="title">
-      Progetti
-    </h1>
-    <div class="container">
-      <div class="row row-cols-3">
-        <div v-for="project in projects" :key="project.id" class="col">
-          <div class="card m-3 p-2">
-            <h3>
-              {{ project.id}}) {{ project.title}}
-            </h3>
-            <div v-if="project.cover_img != null">
-                <img :src="'http://127.0.0.1:8000/storage/'+ project.cover_img" :alt="project.title">
-            </div>
-            <p>
-              {{ project.description}}
-            </p>
-            <p>
-              <strong>Categorie: </strong>
-              <div>{{ project.type.title}}</div>
-            </p>
-            <p v-if="project.technologies.length > 0">
-              <strong>
-                Tecnologie:
-              </strong>
-              <ul v-for="technology in project.technologies">
-                  <li>{{ technology.title}}</li>
-              </ul>
-            </p>
-          </div>
-      </div>
-      </div>
-    </div>
-    <div class="pages-nav row w-50 m-auto justify-content-center text-center my-2">
-      <button class="col-auto btn btn-success mx-2" @click="prewPage()">Precedente</button>
-      <button class="col-auto btn btn-success mx-2" @click="nextPage()">Successiva</button>
-        <div>Pagina {{ currentPage }} di {{ lastPage }}</div>
-    </div>
+    <router-view></router-view>
   </main>
 
 </template>
 
 <style scoped>
-main {
-  background-color: rgb(9, 199, 158);
-  padding: 20px 0;
-}
-.title {
-  background-color: rgb(0, 255, 242);
-  box-shadow: 0px 0px 10px rgb(0, 0, 0);
-  text-align: center;
-  margin: 0 auto;
-  width: 30vw;
-  padding: 5px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  &:hover {
-    animation: bounce 0.5s infinite alternate;
-  }
-}
-@keyframes bounce {
-  to { transform: scale(1.03); }
-}
-.card {
-  background-color: rgb(150, 184, 0);
-  box-shadow: 5px 5px 10px black;
-  border-radius: 10px;
-  margin: 10px;
-  cursor: pointer;
-  transition: ease 0.5s;
-  
-    &:hover {
-      background-color: rgb(183, 255, 0);
-      scale: 1.03;
-    }
-}
-.pages-nav {
-}
+
 </style>

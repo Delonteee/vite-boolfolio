@@ -18,9 +18,14 @@ const router = createRouter ({
             component: ProjectsPage,
         },
         {
-            path: '/projects/:slug', //Questa rotta avrà come parametro slug
+            path: '/projects/:slug', 
             name: 'projects.show',
             component: SingleProjectPage,
+        },
+        {
+            path: '/contacts', 
+            name: 'contacts.index',
+            component: ContactPage,
         },
     ]
 });
